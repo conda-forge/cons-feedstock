@@ -1,4 +1,4 @@
-{% set version = "0.4.5" %}
+{% set version = "0.4.6" %}
 
 package:
   name: cons
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cons/cons-{{ version }}.tar.gz
-  sha256: b46b48adb5a5af7f44375da346d926e55a325d4dc12b9add9f20280d3b3742cb
+  sha256: 669fe9d5ee916d5e42b9cac6acc911df803d04f2e945c1604982a04d27a29b47
 
 build:
   number: 0
