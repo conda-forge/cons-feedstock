@@ -1,4 +1,4 @@
-{% set version = "0.4.5" %}
+{% set version = "0.4.6" %}
 
 package:
   name: cons
@@ -10,16 +10,15 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
-  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
     - setuptools
   run:
-    - python >=3.6
+    - python
     - logical-unification >=0.4.1
 
 test:
@@ -29,8 +28,12 @@ test:
 about:
   home: https://github.com/pythological/python-cons
   license: LGPL-3.0-only
-  summary: An implementation of Lisp/Scheme-like cons in Python.
+  license_familyy: LGPL
   license_file: LICENSE.txt
+  summary: An implementation of Lisp/Scheme-like cons in Python.
+  description: |
+    The cons package attempts to emulate the semantics of Lisp/Scheme's cons as closely as possible while
+    incorporating all the built-in Python sequence types.
   dev_url: https://github.com/pythological/python-cons
 
 extra:
