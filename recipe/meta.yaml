@@ -5,24 +5,26 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/cons/cons-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/c/cons/cons-{{ version }}.tar.gz
   sha256: 669fe9d5ee916d5e42b9cac6acc911df803d04f2e945c1604982a04d27a29b47
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - logical-unification >=0.4.1
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - cons
 
