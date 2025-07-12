@@ -9,7 +9,7 @@ source:
   sha256: 0a96cd2abd6a9f494816c1272cf5583a960041750c2d7a48eeeccd47ce369dfd
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
@@ -18,6 +18,7 @@ requirements:
     - pip
     - python {{ python_min }}
     - setuptools
+    # - setuptools-scm
   run:
     - python >={{ python_min }}
     - logical-unification >=0.4.1
@@ -27,6 +28,9 @@ test:
     - python {{ python_min }}
   imports:
     - cons
+  commands:
+    - python -c "from importlib.metadata import version; print(version('cons'))"
+    - python -c "from importlib.metadata import version; print(version('cons'))" | grep {{ version }}
 
 about:
   home: https://github.com/pythological/python-cons
